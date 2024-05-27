@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Virtual UNMSM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-ez0eGzX1k3O2ZzKwubXTEvNI3uK4ZD8iRHRbZi2XnhAZ3n5vjQV0EWibEAz7guk5" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFFFFF; /* Blanco */
+            color: #333333; /* Negro */
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #C60C30; /* Rojo */
+            color: #FFFFFF; /* Blanco */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+        }
+        #libros {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .libro {
+            background: #fff;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .libro:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .libro h2 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+        .libro p {
+            margin-bottom: 0;
+        }
+        #busqueda {
+            margin-top: 20px;
+            text-align: center;
+        }
+        #buscarLibro {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #666666;
+            margin-right: 10px;
+            width: 200px;
+        }
+        #buscarBtn {
+            padding: 10px 20px;
+            background-color: #FFD700;
+            color: #333333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        #buscarBtn:hover {
+            background-color: #FFC700;
+        }
+        #regresarBtn {
+            padding: 10px;
+            background-color: #007FFF;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        #regresarBtn:hover {
+            background-color: #005BBB;
+        }
+        footer {
+            background-color: #C60C30;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+        }
+        footer span {
+            color: #FFD700;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a la Biblioteca Virtual UNMSM</h1>
+        <div id="busqueda">
+            <input type="text" id="buscarLibro" placeholder="Buscar libro...">
+            <button id="buscarBtn" onclick="buscarLibro()">Buscar</button>
+        </div>
+    </header>
+    <main>
+        <div id="libros">
+            <!-- Los libros se cargarán aquí -->
+        </div>
+        <button id="regresarBtn" onclick="window.location.href='{{ url_for("home") }}'">
+            <i class="fas fa-home"></i>
+        </button>
+    </main>
+    <footer>
+        <p>&copy; 2024 Biblioteca Virtual de Ciencias Matemáticas de la UNMSM. Todos los derechos reservados. <span>Autor: jfso</span></p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
